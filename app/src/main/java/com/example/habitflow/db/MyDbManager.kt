@@ -11,8 +11,37 @@ class MyDbManager( context: Context) {
 
     fun openDb() {
         db = myDbHelper.writableDatabase
-    }
 
+    }
+    fun insertToUserDb(  email:String,password:String){
+        val values = ContentValues().apply {
+            put(MyDbNameClass.COLUMN_NAME_EMAIL, email)
+            put(MyDbNameClass.COLUMN_NAME_PASSWORD, password)
+        }
+        db?.insert(MyDbNameClass.USERTABLE_NAME,null,values)
+
+    }
+    fun readFromUserDb():ArrayList<User>{
+
+        val usersList = ArrayList<User>();
+        val cursor = db?.query(MyDbNameClass.USERTABLE_NAME,null,null,
+            null,null,null,null)
+         if (cursor != null){
+             while (cursor?.moveToNext()!!){
+                 val columnIndex = cursor.getColumnIndex(MyDbNameClass.COLUMN_NAME_EMAIL)
+                 val columnIndex2 = cursor.getColumnIndex(MyDbNameClass.COLUMN_NAME_PASSWORD)
+                 if (columnIndex!= -1 && columnIndex2!= -1){
+                     val email = cursor.getString(columnIndex)
+                     val password = cursor.getString(columnIndex2)
+                     val item = User(email,password)
+                     usersList.add(item)
+                 }
+             }
+             cursor.close()
+
+         }
+        return usersList
+    }
     fun insertToDb(
         habit: String,
         reward: String,
@@ -79,7 +108,6 @@ class MyDbManager( context: Context) {
     ) {
         val selection = BaseColumns._ID + "=$id"
         db?.delete(MyDbNameClass.TABLE_NAME,selection, null)
-
 
     }
     fun updateItemInDb(

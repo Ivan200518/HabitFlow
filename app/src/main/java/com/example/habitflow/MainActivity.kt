@@ -72,11 +72,11 @@ class MainActivity : ComponentActivity() {
         val builder = AlertDialog.Builder(this)
 
         builder.setTitle("")
-            .setMessage("Are you sure that you want to delete the habit?")
-            .setPositiveButton("Yes") { dialog, which ->
+            .setMessage(R.string.sure)
+            .setPositiveButton(R.string.yes) { dialog, which ->
                 myAdapter.removeItem(viewHolder.adapterPosition,myManager)
             }
-            .setNegativeButton("Cancel") { dialog, which ->
+            .setNegativeButton(R.string.cancel) { dialog, which ->
                 myAdapter.updateAdapter(myManager.readDbData())
                 dialog.dismiss()
 
