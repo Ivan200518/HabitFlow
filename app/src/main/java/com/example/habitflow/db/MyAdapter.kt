@@ -116,5 +116,4 @@ class MyAdapter(listMain:ArrayList<ListItem>, contextM:Context): RecyclerView.Ad
     }
 
 
-
 }

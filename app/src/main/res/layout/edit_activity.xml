@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EC5D88"
+    android:background="#1C1C1C"
     tools:context=".EditActivity">
 
     <EditText
@@ -161,7 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="44dp"
-            android:text="Add photo"
+            android:text="@string/addPhoto"
             android:textColor="@color/orange_use"
             android:textSize="16sp"
             android:textStyle="bold"

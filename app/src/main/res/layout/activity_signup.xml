@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/fragment_vertical_margin"
     android:paddingRight="@dimen/fragment_horizontal_margin"
     android:paddingBottom="@dimen/fragment_vertical_margin"
-    tools:context=".ui.login.LoginFragment"
+    tools:context=".SingUpActivity"
     tools:layout_editor_absoluteX="-65dp"
     tools:layout_editor_absoluteY="5dp">
 
@@ -62,12 +62,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
         android:drawableLeft="@drawable/free_icon_password_482624"
         android:drawablePadding="8dp"
         android:fontFamily="@font/font7"
-        android:hint="Confirm Password"
+        android:hint="@string/doublePassword"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
@@ -78,22 +78,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
-
-    <Button
-        android:id="@+id/signUpbut"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_gravity="start"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/ic_background"
-        android:enabled="false"
-        android:fontFamily="@font/font1"
-        android:text="Sign up"
-        android:textColor="#fffacb"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -118,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/font1"
-        android:text="Welcome "
+        android:text="@string/welcome"
         android:textColor="	#fffacb"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/font1"
-        android:text="HabitFlow"
+        android:text="@string/nameOfApp"
         android:textColor="	#fffacb"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -144,13 +128,30 @@
         android:id="@+id/logintext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Already has an account? Login"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/font1"
+        android:onClick="onClickLog"
+        android:text="@string/AlreadyLog"
         android:textColor="#fffacb"
-        app:layout_constraintBottom_toTopOf="@+id/signUpbut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_background"
+        android:fontFamily="@font/font1"
+        android:onClick="onClickAddToDb"
+        android:text="@string/signup"
+        android:textColor="#fffacb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
